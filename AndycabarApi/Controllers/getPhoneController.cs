@@ -21,6 +21,7 @@ namespace AndycabarApi.Controllers
             Models.AndycabarDB db = new Models.AndycabarDB();
             Models.User tb = new Models.User();
             tb.Mobile = phone.phone;
+            tb.Type = "Customer";
             tb.VerificationCode = new Random().Next(1000, 9999);
             
             var data = db.Users.Where(x => x.Mobile == phone.phone).ToList();
@@ -29,6 +30,7 @@ namespace AndycabarApi.Controllers
                 var user = db.Users.Where(x => x.Mobile == phone.phone).FirstOrDefault();
                 user.VerificationCode = tb.VerificationCode;
                 db.SaveChanges();
+                tb.Type = user.Type;
                 var httpWebRequest = (HttpWebRequest)WebRequest.Create(" http://api.smsapp.ir/v2/sms/send/simple");
                 httpWebRequest.ContentType = "application/json";
                 httpWebRequest.Method = "POST";
@@ -78,10 +80,11 @@ namespace AndycabarApi.Controllers
                 {
                     var result = streamReader.ReadToEnd();
                 }
+                return tb.VerificationCode.ToString();
             }
             
             
-            return tb.VerificationCode.ToString();
+            
 
         }
 
