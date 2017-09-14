@@ -15,7 +15,7 @@ namespace AndycabarApi.Controllers
         /// </summary>
         /// <param name="phone">شماره تماس</param>
         /// <returns>مشخصات کاربر</returns>
-        public AllClass.EditCustomer Post(AllClass.Phone phone)
+        public AllClass.EditCustomer Post([FromBody]AllClass.Phone phone)
         {
             Models.AndycabarDB db = new Models.AndycabarDB();
             var data = db.Users.Where(x => x.Mobile == phone.phone).ToList();
@@ -23,15 +23,13 @@ namespace AndycabarApi.Controllers
             {
                 AllClass.EditCustomer ed = new AllClass.EditCustomer();
                 ed.name = data[0].Name;
-                var data2 = db.Customers.Where(x => x.UserId == data[0].Id).ToList();
+                int id = data[0].Id;
+                var data2 = db.Customers.Where(x => x.UserId ==id ).ToList();
                 if (data2.Count()>0)
                 {
                     ed.email = data2[0].Email;
                 }
-                else
-                {
-                    ed.email = "";
-                }
+                
                 ed.phone = phone.phone;
                 return ed;
             }
