@@ -21,7 +21,8 @@ namespace AndycabarApi.Controllers
             var data = db.Users.Where(x => x.Mobile == phone.phone).ToList();
             if (data.Count()>0)
             {
-               return  db.Transactions.Where(x => x.CustomerId == data[0].Id).Sum(x => x.Amount).ToString();
+                int id = data[0].Id;
+               return  db.Transactions.Where(x => x.CustomerId ==id ).Sum(x => x.Amount).ToString();
             }
             else
             {
