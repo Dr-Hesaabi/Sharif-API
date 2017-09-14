@@ -9,8 +9,18 @@ namespace AndycabarApi.Controllers
 {
     public class insertAmountController : ApiController
     {
+        /// <summary>
+        /// api/insertAmount
+        //افزایش اعتبار
+        /// </summary>
+        /// <param name="amount"> موبایل و مبلغ</param>
+        /// <returns>
+        /// true
+        /// false
+        /// </returns>
         public string Post([FromBody] AllClass.Amount amount)
         {
+            
             Models.AndycabarDB db = new Models.AndycabarDB();
            
             var data = db.Users.Where(x => x.Mobile == amount.phone).ToList();

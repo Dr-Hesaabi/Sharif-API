@@ -15,16 +15,29 @@ namespace AndycabarApi.Controllers
         /// </summary>
         /// <param name="barcode">بارکد</param>
         /// <returns>مشخصات یک کالا </returns>
-        public Models.Product Post(AllClass.Barcode barcode)
+        public AllClass.Product Post(AllClass.Barcode barcode)
         {
             Models.AndycabarDB db = new Models.AndycabarDB();
-            List<Models.Product> li = new List<Models.Product>();
+            
 
             var data = db.Products.Where(x => x.Barcode == barcode.barcode).ToList();
             if (data.Count()>0)
             {
-                li.Add(data[0]);
-                return li[0];
+                AllClass.Product pr = new AllClass.Product();
+                pr.barcode = data[0].Barcode;
+                pr.salePrice = data[0].SalePrice.ToString();
+                pr.companyCost = (data[0].CompanyCost + data[0].Profit).ToString();
+                pr.groupId = data[0].GroupId.ToString();
+                pr.detailedName = data[0].DetailedName;
+                pr.description = data[0].Description;
+                if (data[0].Image!=null)
+                {
+                    pr.pic = Convert.ToBase64String(data[0].Image);
+                }
+                
+                return pr;
+
+
             }
             else
             {
