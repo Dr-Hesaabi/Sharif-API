@@ -13,6 +13,7 @@ namespace AndycabarApi.Models
         public Product()
         {
             Associtation_TransactionProduct = new HashSet<Associtation_TransactionProduct>();
+            ProductTransfers = new HashSet<ProductTransfer>();
         }
 
         [Key]
@@ -41,5 +42,8 @@ namespace AndycabarApi.Models
         public virtual ICollection<Associtation_TransactionProduct> Associtation_TransactionProduct { get; set; }
 
         public virtual Group Group { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ProductTransfer> ProductTransfers { get; set; }
     }
 }

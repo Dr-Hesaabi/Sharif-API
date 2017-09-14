@@ -92,6 +92,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AllClass\Amount.cs" />
     <Compile Include="AllClass\Barcode.cs" />
     <Compile Include="AllClass\CheckPhone.cs" />
     <Compile Include="AllClass\EditCustomer.cs" />
@@ -107,6 +108,7 @@
     <Compile Include="Controllers\getOneProductController.cs" />
     <Compile Include="Controllers\getPhoneController.cs" />
     <Compile Include="Controllers\getVerificationCodeController.cs" />
+    <Compile Include="Controllers\insertAmountController.cs" />
     <Compile Include="Controllers\insertGroupController.cs" />
     <Compile Include="Controllers\insertProductController.cs" />
     <Compile Include="Controllers\RecentFactorsCustomerController.cs" />
@@ -121,6 +123,7 @@
     <Compile Include="Models\Group.cs" />
     <Compile Include="Models\Marketer.cs" />
     <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\ProductTransfer.cs" />
     <Compile Include="Models\SalesOfficer.cs" />
     <Compile Include="Models\Seller.cs" />
     <Compile Include="Models\sysdiagram.cs" />

@@ -18,6 +18,7 @@ namespace AndycabarApi.Models
         public virtual DbSet<Group> Groups { get; set; }
         public virtual DbSet<Marketer> Marketers { get; set; }
         public virtual DbSet<Product> Products { get; set; }
+        public virtual DbSet<ProductTransfer> ProductTransfers { get; set; }
         public virtual DbSet<SalesOfficer> SalesOfficers { get; set; }
         public virtual DbSet<Seller> Sellers { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
@@ -74,6 +75,15 @@ namespace AndycabarApi.Models
                 .HasMany(e => e.Associtation_TransactionProduct)
                 .WithRequired(e => e.Product)
                 .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Product>()
+                .HasMany(e => e.ProductTransfers)
+                .WithRequired(e => e.Product)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<ProductTransfer>()
+                .Property(e => e.ProductBarcode)
+                .IsUnicode(false);
 
             modelBuilder.Entity<SalesOfficer>()
                 .Property(e => e.NationalCode)
