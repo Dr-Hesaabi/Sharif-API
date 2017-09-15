@@ -94,6 +94,7 @@
   <ItemGroup>
     <Compile Include="AllClass\Amount.cs" />
     <Compile Include="AllClass\Barcode.cs" />
+    <Compile Include="AllClass\Bascket.cs" />
     <Compile Include="AllClass\CheckPhone.cs" />
     <Compile Include="AllClass\EditCustomer.cs" />
     <Compile Include="AllClass\Group.cs" />
@@ -109,6 +110,7 @@
     <Compile Include="Controllers\getPhoneController.cs" />
     <Compile Include="Controllers\getVerificationCodeController.cs" />
     <Compile Include="Controllers\insertAmountController.cs" />
+    <Compile Include="Controllers\insertBascketController.cs" />
     <Compile Include="Controllers\insertGroupController.cs" />
     <Compile Include="Controllers\insertProductController.cs" />
     <Compile Include="Controllers\RecentFactorsCustomerController.cs" />

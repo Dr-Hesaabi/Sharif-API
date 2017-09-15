@@ -17,11 +17,11 @@ namespace AndycabarApi.Models
 
         public DateTime ProduceEvent { get; set; }
 
-        public DateTime EntranceEvent { get; set; }
+        public DateTime? EntranceEvent { get; set; }
 
-        public DateTime BarcodeEvent { get; set; }
+        public DateTime? BarcodeEvent { get; set; }
 
-        public DateTime SaleEvent { get; set; }
+        public DateTime? SaleEvent { get; set; }
 
         public DateTime SubmitEvent { get; set; }
 

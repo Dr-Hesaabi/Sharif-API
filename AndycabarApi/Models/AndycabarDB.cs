@@ -152,10 +152,6 @@ namespace AndycabarApi.Models
                 .IsUnicode(false);
 
             modelBuilder.Entity<v_ProductSearch>()
-                .Property(e => e.Barcode)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<v_ProductSearch>()
                 .Property(e => e.Profit)
                 .HasPrecision(13, 2);
 
@@ -166,6 +162,10 @@ namespace AndycabarApi.Models
             modelBuilder.Entity<v_ProductSearch>()
                 .Property(e => e.CompanyCost)
                 .HasPrecision(12, 2);
+
+            modelBuilder.Entity<v_ProductSearch>()
+                .Property(e => e.Barcode)
+                .IsUnicode(false);
         }
     }
 }

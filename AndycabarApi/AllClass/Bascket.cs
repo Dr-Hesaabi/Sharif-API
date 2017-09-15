@@ -5,12 +5,9 @@ using System.Web;
 
 namespace AndycabarApi.AllClass
 {
-    public class EditCustomer
+    public class Bascket
     {
-        public string name { get; set; }
-        public string email { get; set; }
         public string phone { get; set; }
-       
-
+        public string  barcode { get; set; }
     }
 }

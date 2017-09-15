@@ -18,17 +18,17 @@ namespace AndycabarApi.Controllers
         {
             Models.AndycabarDB db = new Models.AndycabarDB();
             //var data = db.Products.Where(x => x.DetailedName.Contains(name.name)).ToList();
-           return db.v_ProductSearch.Where(x=>x.ProductName.Contains(name.name) || x.GroupName.Contains(name.name) || x.BusinessName.Contains(name.name))
-                .Select(x => new Models.Product
-                {
-                    GroupId = x.GroupId,
-                    Barcode = x.Barcode,
-                    SalePrice = x.SalePrice,
-                    CompanyCost = x.CompanyCost,
-                    Profit = x.Profit,
-                    Description = x.Description,
-                    DetailedName = x.ProductName
-                    ,Image=x.Image
+            return db.v_ProductSearch.Where(x => x.ProductName.Contains(name.name) || x.GroupName.Contains(name.name) || x.BusinessName.Contains(name.name))
+                 .Select(x => new Models.Product
+                 {
+                     GroupId = x.GroupId,
+                     Id = x.productId,
+                     SalePrice = x.SalePrice,
+                     CompanyCost = x.CompanyCost,
+                     Profit = x.Profit,
+                     Description = x.Description,
+                     DetailedName = x.ProductName
+                     , Image = x.imageProduct
                     
                 }).ToList();
 

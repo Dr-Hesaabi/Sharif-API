@@ -23,7 +23,7 @@ namespace AndycabarApi.Controllers
             Models.AndycabarDB db = new Models.AndycabarDB();
            
             Models.Product tb = new Models.Product();
-            tb.Barcode = product.barcode;
+            tb.Id =long.Parse( product.barcode);
             tb.CompanyCost =decimal.Parse( product.companyCost);
             tb.Description = product.description;
             tb.DetailedName = product.detailedName;
