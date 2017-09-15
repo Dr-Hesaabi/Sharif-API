@@ -27,6 +27,13 @@ namespace AndycabarApi.Models
 
         public DateTime ExpireEvent { get; set; }
 
+        public int StoreId { get; set; }
+
+        [StringLength(50)]
+        public string YourBarcode { get; set; }
+
         public virtual Product Product { get; set; }
+
+        public virtual Store Store { get; set; }
     }
 }

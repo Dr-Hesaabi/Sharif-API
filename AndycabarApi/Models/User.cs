@@ -28,8 +28,6 @@ namespace AndycabarApi.Models
 
         public virtual Marketer Marketer { get; set; }
 
-        public virtual SalesOfficer SalesOfficer { get; set; }
-
         public virtual Seller Seller { get; set; }
     }
 }

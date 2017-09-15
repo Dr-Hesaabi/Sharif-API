@@ -8,7 +8,7 @@ namespace AndycabarApi.Models
     public partial class AndycabarDB : DbContext
     {
         public AndycabarDB()
-            : base("name=AndycabarDB")
+            : base("name=AndycabarDB1")
         {
         }
 
@@ -19,7 +19,6 @@ namespace AndycabarApi.Models
         public virtual DbSet<Marketer> Marketers { get; set; }
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<ProductTransfer> ProductTransfers { get; set; }
-        public virtual DbSet<SalesOfficer> SalesOfficers { get; set; }
         public virtual DbSet<Seller> Sellers { get; set; }
         public virtual DbSet<Store> Stores { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
@@ -34,11 +33,6 @@ namespace AndycabarApi.Models
         {
             modelBuilder.Entity<Business>()
                 .HasMany(e => e.Groups)
-                .WithRequired(e => e.Business)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<Business>()
-                .HasMany(e => e.SalesOfficers)
                 .WithRequired(e => e.Business)
                 .WillCascadeOnDelete(false);
 
@@ -75,10 +69,6 @@ namespace AndycabarApi.Models
                 .Property(e => e.Barcode)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<SalesOfficer>()
-                .Property(e => e.NationalCode)
-                .IsUnicode(false);
-
             modelBuilder.Entity<Seller>()
                 .HasMany(e => e.Transactions)
                 .WithOptional(e => e.Seller)
@@ -91,6 +81,11 @@ namespace AndycabarApi.Models
             modelBuilder.Entity<Store>()
                 .Property(e => e.Longitude)
                 .HasPrecision(15, 6);
+
+            modelBuilder.Entity<Store>()
+                .HasMany(e => e.ProductTransfers)
+                .WithRequired(e => e.Store)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Store>()
                 .HasMany(e => e.Sellers)
@@ -116,10 +111,6 @@ namespace AndycabarApi.Models
 
             modelBuilder.Entity<User>()
                 .HasOptional(e => e.Marketer)
-                .WithRequired(e => e.User);
-
-            modelBuilder.Entity<User>()
-                .HasOptional(e => e.SalesOfficer)
                 .WithRequired(e => e.User);
 
             modelBuilder.Entity<User>()

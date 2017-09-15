@@ -126,7 +126,6 @@
     <Compile Include="Models\Marketer.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\ProductTransfer.cs" />
-    <Compile Include="Models\SalesOfficer.cs" />
     <Compile Include="Models\Seller.cs" />
     <Compile Include="Models\Store.cs" />
     <Compile Include="Models\sysdiagram.cs" />
@@ -140,6 +139,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+    <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

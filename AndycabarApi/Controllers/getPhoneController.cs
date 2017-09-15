@@ -59,6 +59,13 @@ namespace AndycabarApi.Controllers
             {
                 db.Users.Add(tb);
                 db.SaveChanges();
+                var userId = db.Users.Where(x => x.Mobile == phone.phone).FirstOrDefault();
+                int userid = userId.Id;
+                Models.Customer tb1 = new Models.Customer();
+                tb1.UserId = userid;
+                tb1.Email = "";
+                db.Customers.Add(tb1);
+                db.SaveChanges();
                 var httpWebRequest = (HttpWebRequest)WebRequest.Create(" http://api.smsapp.ir/v2/sms/send/simple");
                 httpWebRequest.ContentType = "application/json";
                 httpWebRequest.Method = "POST";
