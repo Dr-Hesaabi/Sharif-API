@@ -64,7 +64,6 @@ namespace AndycabarApi.Models
             modelBuilder.Entity<Product>()
                 .HasMany(e => e.Associtation_TransactionProduct)
                 .WithRequired(e => e.Product)
-                .HasForeignKey(e => e.ProductBarcode)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Product>()

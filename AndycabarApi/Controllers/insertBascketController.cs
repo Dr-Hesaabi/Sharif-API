@@ -29,12 +29,15 @@ namespace AndycabarApi.Controllers
             tb.CustomerId = user.Id;
             tb.Submit = DateTime.Now;
             db.Transactions.Add(tb);
-            int id = db.Transactions.Where(x => x.CustomerId == user.Id).Select(x=>x.Id).Last();
+            var id = db.Transactions.Where(x => x.CustomerId == user.Id)
+                .OrderByDescending(x => x.Id).Select(x => x.Id).FirstOrDefault();
+            int id1 = id;
             foreach (var item in data)
             {
+                var product = db.v_ProductSearch.Where(x => x.Barcode == item).FirstOrDefault();
                 Models.Associtation_TransactionProduct tb1 = new Models.Associtation_TransactionProduct();
                 tb1.TransactionId = id;
-                tb1.ProductBarcode =long.Parse( item);
+                tb1.ProductId =product.productId;
                 db.Associtation_TransactionProduct.Add(tb1);
                 db.SaveChanges();
             }
