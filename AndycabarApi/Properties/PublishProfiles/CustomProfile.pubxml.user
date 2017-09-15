@@ -10,7 +10,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/AndycabarApi.dll">
-      <publishTime>09/15/2017 05:49:52</publishTime>
+      <publishTime>09/15/2017 06:11:43</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>01/03/2017 23:44:16</publishTime>

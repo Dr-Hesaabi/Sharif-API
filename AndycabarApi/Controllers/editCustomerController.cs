@@ -23,19 +23,27 @@ namespace AndycabarApi.Controllers
         /// true string
         /// false string
         /// </returns>
-        public string Post(AllClass.EditCustomer customer)
+        public string Post(string id,AllClass.EditCustomer customer)
         {
             Models.AndycabarDB db = new Models.AndycabarDB();
             var a = db.Users.Where(x => x.Mobile == customer.phone).ToList();
             if (a.Count > 0)
             {
-                var data = db.Users.Where(x => x.Mobile == customer.phone).FirstOrDefault();
+                var data = db.Users
+                    .Where(x => x.Mobile == customer.phone)
+                    .FirstOrDefault();
+
                 data.Name = customer.name;
                 db.SaveChanges();
+
                 var b = db.Customers.Where(x => x.UserId == data.Id).ToList();
+
                 if (b.Count() > 0)
                 {
-                    var data2 = db.Customers.Where(x => x.UserId == data.Id).FirstOrDefault();
+                    var data2 = db.Customers
+                        .Where(x => x.UserId == data.Id)
+                        .FirstOrDefault();
+
                     data2.Email = customer.email;
                     db.SaveChanges();
                 }

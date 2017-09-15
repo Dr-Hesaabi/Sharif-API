@@ -20,7 +20,9 @@ namespace AndycabarApi.Controllers
             Models.AndycabarDB db = new Models.AndycabarDB();
             
 
-            var data = db.v_ProductDetails.Where(x => x.Barcode == barcode.barcode).ToList();
+            var data = db.v_ProductDetails
+                .Where(x => x.Barcode == barcode.barcode).ToList();
+
             if (data.Count()>0)
             {
                 AllClass.Product pr = new AllClass.Product();
@@ -30,6 +32,7 @@ namespace AndycabarApi.Controllers
                 pr.groupId = data[0].GroupId.ToString();
                 pr.detailedName = data[0].DetailedName;
                 pr.description = data[0].Description;
+
                 if (data[0].Image!=null)
                 {
                     pr.pic = Convert.ToBase64String(data[0].Image);

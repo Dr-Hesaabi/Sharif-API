@@ -21,7 +21,8 @@ namespace AndycabarApi.Controllers
         public List<Models.v_Factors> Post(AllClass.Phone phone)
         {
             Models.AndycabarDB db = new Models.AndycabarDB();
-            var data = db.Users.Where(x => x.Mobile == phone.phone).ToList();
+            var data = db.Users
+                       .Where(x => x.Mobile == phone.phone).ToList();
             if (data.Count()>0)
             {
                

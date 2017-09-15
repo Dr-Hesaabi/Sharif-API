@@ -11,6 +11,7 @@ namespace AndycabarApi.Controllers
     {
         /// <summary>
         /// api/insertProduct
+        /// ذخیره کردن محصول
         /// </summary>
         /// <param name="product">
         /// </param>
@@ -21,16 +22,16 @@ namespace AndycabarApi.Controllers
         public string Post(AllClass.Product product)
         {
             Models.AndycabarDB db = new Models.AndycabarDB();
-           
+
             Models.Product tb = new Models.Product();
-            tb.Id =long.Parse( product.barcode);
-            tb.CompanyCost =decimal.Parse( product.companyCost);
+            tb.Id = long.Parse(product.barcode);
+            tb.CompanyCost = decimal.Parse(product.companyCost);
             tb.Description = product.description;
             tb.DetailedName = product.detailedName;
-            tb.GroupId =int.Parse( product.groupId);
+            tb.GroupId = int.Parse(product.groupId);
             tb.SalePrice = decimal.Parse(product.salePrice);
-            tb.Image= Convert.FromBase64String(product.pic);
-            tb.Profit =(( decimal.Parse(product.salePrice) - decimal.Parse(product.companyCost))/2)+ decimal.Parse(product.companyCost);
+            tb.Image = Convert.FromBase64String(product.pic);
+            tb.Profit = ((decimal.Parse(product.salePrice) - decimal.Parse(product.companyCost)) / 2) + decimal.Parse(product.companyCost);
             db.Products.Add(tb);
             db.SaveChanges();
             return "true";

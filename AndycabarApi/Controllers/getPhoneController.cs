@@ -22,6 +22,7 @@ namespace AndycabarApi.Controllers
             Models.User tb = new Models.User();
             tb.Mobile = phone.phone;
             tb.Type = "Customer";
+            tb.Name = "";
             tb.VerificationCode = new Random().Next(1000, 9999);
             
             var data = db.Users.Where(x => x.Mobile == phone.phone).ToList();

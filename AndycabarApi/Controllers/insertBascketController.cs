@@ -27,25 +27,30 @@ namespace AndycabarApi.Controllers
             decimal sum = 0;
             foreach (var item in data)
             {
-                var product = db.v_ProductSearch.Where(x => x.Barcode == item).FirstOrDefault();
-                sum += (decimal)(product.CompanyCost + product.Profit);
-                
-                
+                var product = db.v_ProductSearch.
+                              Where(x => x.Barcode == item).FirstOrDefault();
 
+                sum += (decimal)(product.CompanyCost + product.Profit);
             }
-            var user = db.Users.Where(x => x.Mobile == bascket.phone).FirstOrDefault();
+            var user = db.Users
+                      .Where(x => x.Mobile == bascket.phone).FirstOrDefault();
 
             Models.Transaction tb = new Models.Transaction();
             tb.Amount = sum;
             tb.CustomerId = user.Id;
             tb.Submit = DateTime.Now;
             db.Transactions.Add(tb);
-            var id = db.Transactions.Where(x => x.CustomerId == user.Id)
-                .OrderByDescending(x => x.Id).Select(x => x.Id).FirstOrDefault();
+            var id = db.Transactions
+                    .Where(x => x.CustomerId == user.Id)
+                    .OrderByDescending(x => x.Id)
+                    .Select(x => x.Id).FirstOrDefault();
+
             int id1 = id;
             foreach (var item in data)
             {
-                var product = db.v_ProductSearch.Where(x => x.Barcode == item).FirstOrDefault();
+                var product = db.v_ProductSearch
+                             .Where(x => x.Barcode == item).FirstOrDefault();
+
                 Models.Associtation_TransactionProduct tb1 = new Models.Associtation_TransactionProduct();
                 tb1.TransactionId = id;
                 tb1.ProductId =product.productId;

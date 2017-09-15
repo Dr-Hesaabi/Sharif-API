@@ -23,7 +23,9 @@ namespace AndycabarApi.Controllers
             
             Models.AndycabarDB db = new Models.AndycabarDB();
            
-            var data = db.Users.Where(x => x.Mobile == amount.phone).ToList();
+            var data = db.Users
+                .Where(x => x.Mobile == amount.phone).ToList();
+            
             if (data.Count()>0)
             {
                 Models.Transaction tb = new Models.Transaction();

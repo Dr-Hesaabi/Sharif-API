@@ -18,11 +18,16 @@ namespace AndycabarApi.Controllers
         public string Post(AllClass.Phone phone)
         {
             Models.AndycabarDB db = new Models.AndycabarDB();
-            var data = db.Users.Where(x => x.Mobile == phone.phone).ToList();
+            var data = db.Users
+                .Where(x => x.Mobile == phone.phone)
+                .ToList();
+
             if (data.Count()>0)
             {
                 int id = data[0].Id;
-               return  db.Transactions.Where(x => x.CustomerId ==id ).Sum(x => x.Amount).ToString();
+               return  db.Transactions
+                    .Where(x => x.CustomerId ==id )
+                    .Sum(x => x.Amount).ToString();
             }
             else
             {

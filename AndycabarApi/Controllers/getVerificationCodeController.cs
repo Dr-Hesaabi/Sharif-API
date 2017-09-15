@@ -23,7 +23,9 @@ namespace AndycabarApi.Controllers
         {
             Models.AndycabarDB db = new Models.AndycabarDB();
             int code = int.Parse(checkPhone.VerificationCode);
-            var data = db.Users.Where(x => x.Mobile == checkPhone.phone && x.VerificationCode == code).ToList();
+            var data = db.Users
+                .Where(x => x.Mobile == checkPhone.phone && 
+                            x.VerificationCode == code).ToList();
             if (data.Count>0)
             {
                 return data[0].Type;
