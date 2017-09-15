@@ -9,6 +9,17 @@ namespace AndycabarApi.Controllers
 {
     public class insertBascketController : ApiController
     {
+        /// <summary>
+        /// api/insertBascket
+        ///ذخیره سبد خرید
+        /// </summary>
+        /// <param name="bascket">
+        /// بارکد کالا
+        /// موبایل
+        /// </param>
+        /// <returns>
+        /// جمع قیمت سبد
+        /// </returns>
         public string Post([FromBody] AllClass.Bascket bascket)
         {
             string[] data = bascket.barcode.Split(',');
