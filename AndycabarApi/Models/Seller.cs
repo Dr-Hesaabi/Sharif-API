@@ -21,19 +21,9 @@ namespace AndycabarApi.Models
 
         public int NationalCode { get; set; }
 
-        [Required]
-        public string Address { get; set; }
+        public int StoreId { get; set; }
 
-        [Required]
-        [StringLength(50)]
-        public string Location { get; set; }
-
-        [Required]
-        [StringLength(50)]
-        public string BankAcount { get; set; }
-
-        [StringLength(300)]
-        public string StoreName { get; set; }
+        public virtual Store Store { get; set; }
 
         public virtual User User { get; set; }
 

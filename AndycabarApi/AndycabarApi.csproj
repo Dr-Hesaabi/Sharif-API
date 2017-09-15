@@ -126,11 +126,13 @@
     <Compile Include="Models\ProductTransfer.cs" />
     <Compile Include="Models\SalesOfficer.cs" />
     <Compile Include="Models\Seller.cs" />
+    <Compile Include="Models\Store.cs" />
     <Compile Include="Models\sysdiagram.cs" />
     <Compile Include="Models\SystemOprator.cs" />
     <Compile Include="Models\Transaction.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\v_Factors.cs" />
+    <Compile Include="Models\v_ProductDetails.cs" />
     <Compile Include="Models\v_ProductSearch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

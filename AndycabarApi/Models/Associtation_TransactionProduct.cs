@@ -10,9 +10,7 @@ namespace AndycabarApi.Models
     {
         public int Id { get; set; }
 
-        [Required]
-        [StringLength(50)]
-        public string ProductBarcode { get; set; }
+        public long ProductBarcode { get; set; }
 
         public int TransactionId { get; set; }
 

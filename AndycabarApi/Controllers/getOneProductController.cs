@@ -20,7 +20,7 @@ namespace AndycabarApi.Controllers
             Models.AndycabarDB db = new Models.AndycabarDB();
             
 
-            var data = db.Products.Where(x => x.Barcode == barcode.barcode).ToList();
+            var data = db.v_ProductDetails.Where(x => x.Barcode == barcode.barcode).ToList();
             if (data.Count()>0)
             {
                 AllClass.Product pr = new AllClass.Product();

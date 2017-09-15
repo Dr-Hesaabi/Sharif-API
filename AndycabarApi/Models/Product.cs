@@ -16,9 +16,7 @@ namespace AndycabarApi.Models
             ProductTransfers = new HashSet<ProductTransfer>();
         }
 
-        [Key]
-        [StringLength(50)]
-        public string Barcode { get; set; }
+        public long Id { get; set; }
 
         [Required]
         public string Description { get; set; }

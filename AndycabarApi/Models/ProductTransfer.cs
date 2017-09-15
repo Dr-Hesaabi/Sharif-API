@@ -9,11 +9,11 @@ namespace AndycabarApi.Models
     [Table("ProductTransfer")]
     public partial class ProductTransfer
     {
-        public long Id { get; set; }
-
-        [Required]
+        [Key]
         [StringLength(50)]
-        public string ProductBarcode { get; set; }
+        public string Barcode { get; set; }
+
+        public long ProductId { get; set; }
 
         public DateTime ProduceEvent { get; set; }
 
@@ -22,6 +22,10 @@ namespace AndycabarApi.Models
         public DateTime BarcodeEvent { get; set; }
 
         public DateTime SaleEvent { get; set; }
+
+        public DateTime SubmitEvent { get; set; }
+
+        public DateTime ExpireEvent { get; set; }
 
         public virtual Product Product { get; set; }
     }
