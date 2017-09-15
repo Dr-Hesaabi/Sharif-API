@@ -54,10 +54,6 @@ namespace AndycabarApi.Models
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Product>()
-                .Property(e => e.Profit)
-                .HasPrecision(13, 2);
-
-            modelBuilder.Entity<Product>()
                 .Property(e => e.SalePrice)
                 .HasPrecision(12, 2);
 
